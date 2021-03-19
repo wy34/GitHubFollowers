@@ -8,6 +8,9 @@
 import UIKit
 
 class SearchVC: UIViewController {
+    // MARK: - Properties
+    var isUsernameEntered: Bool { return !userNameTextField.text!.isEmpty }
+    
     // MARK: - Views
     let logoImageView = UIImageView()
     let userNameTextField = GFTextField()
@@ -17,6 +20,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        createKeyboardTapGesture()
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
@@ -28,6 +32,11 @@ class SearchVC: UIViewController {
     }
     
     // MARK: - UI
+    func createKeyboardTapGesture() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tap)
+    }
+    
     func configureLogoImageView() {
         view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +52,7 @@ class SearchVC: UIViewController {
     
     func configureTextField() {
         view.addSubview(userNameTextField)
+        userNameTextField.delegate = self
         
         NSLayoutConstraint.activate([
             userNameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
@@ -54,6 +64,7 @@ class SearchVC: UIViewController {
     
     func configureCallToActionButton() {
         view.addSubview(callToActionButton)
+        callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
@@ -61,5 +72,22 @@ class SearchVC: UIViewController {
             callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             callToActionButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    // MARK: - Selector
+    @objc func pushFollowerListVC() {
+        guard isUsernameEntered else { return }
+        let followerListVC = FollowerListVC()
+        followerListVC.username = userNameTextField.text
+        followerListVC.title = userNameTextField.text
+        navigationController?.pushViewController(followerListVC, animated: true)
+    }
+}
+
+// MARK: - UITextField Delegate
+extension SearchVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        pushFollowerListVC()
+        return true
     }
 }
