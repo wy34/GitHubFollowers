@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C0FA1FA2607048200AB544A /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0FA1F92607048200AB544A /* Follower.swift */; };
 		4C0FA1FD2607054300AB544A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0FA1FC2607054300AB544A /* User.swift */; };
+		4C49ABC12608184900AC3321 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C49ABC02608184900AC3321 /* NetworkManager.swift */; };
 		4C58B39926050CDD003A0E6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C58B39826050CDD003A0E6D /* AppDelegate.swift */; };
 		4C58B39B26050CDD003A0E6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C58B39A26050CDD003A0E6D /* SceneDelegate.swift */; };
 		4C58B3A226050CDE003A0E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C58B3A126050CDE003A0E6D /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		4C0FA1F92607048200AB544A /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		4C0FA1FC2607054300AB544A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4C49ABC02608184900AC3321 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4C58B39526050CDD003A0E6D /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C58B39826050CDD003A0E6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C58B39A26050CDD003A0E6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4C49ABBF2608183900AC3321 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4C49ABC02608184900AC3321 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		4C58B38C26050CDD003A0E6D = {
 			isa = PBXGroup;
 			children = (
@@ -124,8 +134,9 @@
 		4C58B39726050CDD003A0E6D /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				4C0FA1F82607047600AB544A /* Model */,
 				4C58B3A626050CDE003A0E6D /* Info.plist */,
+				4C49ABBF2608183900AC3321 /* Managers */,
+				4C0FA1F82607047600AB544A /* Model */,
 				4C0FA1F02606595E00AB544A /* Extensions */,
 				4C0FA1EF2606592E00AB544A /* CustomViews */,
 				4C0FA1EE260658F700AB544A /* Screens */,
@@ -213,6 +224,7 @@
 				4C58B3C526057A29003A0E6D /* GFBodyLabel.swift in Sources */,
 				4C0FA1FA2607048200AB544A /* Follower.swift in Sources */,
 				4C58B3C12605788F003A0E6D /* GFTitleLabel.swift in Sources */,
+				4C49ABC12608184900AC3321 /* NetworkManager.swift in Sources */,
 				4C58B3BD26054D06003A0E6D /* FollowerListVC.swift in Sources */,
 				4C58B39926050CDD003A0E6D /* AppDelegate.swift in Sources */,
 				4C58B39B26050CDD003A0E6D /* SceneDelegate.swift in Sources */,
