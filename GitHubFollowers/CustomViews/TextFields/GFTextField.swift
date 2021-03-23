@@ -18,6 +18,7 @@ class GFTextField: UITextField {
     }
     
     private func configure() {
+        text = "SAllen0400"
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 10
         layer.borderWidth = 2
