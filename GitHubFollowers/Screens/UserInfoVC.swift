@@ -11,7 +11,6 @@ protocol FollowerListVCDelegate: class {
     func didRequestFollowers(for username: String)
 }
 
-
 class UserInfoVC: UIViewController {
     var username: String!
     weak var delegate: FollowerListVCDelegate!
