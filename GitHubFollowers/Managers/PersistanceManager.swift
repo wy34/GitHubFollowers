@@ -31,6 +31,7 @@ enum PersistanceManager {
                             retrievedFavorites.append(favorite)
                         case .remove:
                             retrievedFavorites.removeAll { $0.login == favorite.login }
+                            print(retrievedFavorites)
                     }
                     
                     completed(save(favorites: retrievedFavorites))

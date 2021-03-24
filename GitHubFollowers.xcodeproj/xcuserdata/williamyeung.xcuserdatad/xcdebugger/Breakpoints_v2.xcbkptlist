@@ -3,4 +3,86 @@
    uuid = "BE0A9722-BA82-4B3F-874C-B9AAE18C7696"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D41C2338-F59C-4284-8004-D2EC5FD0D432"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitHubFollowers/Screens/FavoritesListVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "tableView(_:trailingSwipeActionsConfigurationForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1B58F5B4-C902-40CE-BD86-67E2DFCBEC5A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitHubFollowers/Managers/PersistanceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "updateWith(favorite:actionType:completed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1B58F5B4-C902-40CE-BD86-67E2DFCBEC5A - 1f41f1e87e468f4a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;GitHubFollowers.Follower&gt;, GitHubFollowers.GFError&gt;) -&gt; () in static GitHubFollowers.PersistanceManager.updateWith(favorite: GitHubFollowers.Follower, actionType: GitHubFollowers.PersistanceActionType, completed: (Swift.Optional&lt;GitHubFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GitHubFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamyeung/Desktop/GitHubFollowers/GitHubFollowers/Managers/PersistanceManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "864">
+               </Location>
+               <Location
+                  uuid = "1B58F5B4-C902-40CE-BD86-67E2DFCBEC5A - ba76b2672673bd23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (GitHubFollowers.Follower) -&gt; Swift.Bool in closure #1 (Swift.Result&lt;Swift.Array&lt;GitHubFollowers.Follower&gt;, GitHubFollowers.GFError&gt;) -&gt; () in static GitHubFollowers.PersistanceManager.updateWith(favorite: GitHubFollowers.Follower, actionType: GitHubFollowers.PersistanceActionType, completed: (Swift.Optional&lt;GitHubFollowers.GFError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GitHubFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/williamyeung/Desktop/GitHubFollowers/GitHubFollowers/Managers/PersistanceManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8767AAC-A84B-43D9-9379-F08307725678"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitHubFollowers/Managers/PersistanceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "updateWith(favorite:actionType:completed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

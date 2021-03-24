@@ -15,8 +15,12 @@ class FavoritesListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        getFavorites()
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getFavorites()
     }
     
     func configureViewController() {
@@ -26,12 +30,22 @@ class FavoritesListVC: UIViewController {
     }
 
     func getFavorites() {
-        PersistanceManager.retrieveFavorites { (result) in
+        PersistanceManager.retrieveFavorites { [weak self] (result) in
+            guard let self = self else { return }
+            
             switch result {
                 case .success(let favorites):
-                    self.favorites = favorites
+                    if favorites.isEmpty {
+                        self.showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen", view: self.view)
+                    } else {
+                        self.favorites = favorites
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            self.view.bringSubviewToFront(self.tableView)
+                        }
+                    }
                 case .failure(let error):
-                    break
+                    self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
             }
         }
     }
@@ -43,6 +57,7 @@ class FavoritesListVC: UIViewController {
         tableView.rowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
     }
 }
 
@@ -56,5 +71,31 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
         let favorite = favorites[indexPath.row]
         cell.set(favorite: favorite)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let favorite = favorites[indexPath.row]
+        let destVC = FollowerListVC()
+        destVC.username = favorite.login
+        destVC.title = favorite.login
+        navigationController?.pushViewController(destVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, completed) in
+            let favorite = self.favorites[indexPath.row]
+            print(favorite.login)
+            self.favorites.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            PersistanceManager.updateWith(favorite: favorite, actionType: .remove) { [weak self] (error) in
+                guard let self = self else { return }
+                guard let error = error else { return }
+                self.presentGFAlertOnMainThread(title: "Unable to remove", message: error.rawValue, buttonTitle: "OK")
+            }
+            completed(true)
+        }
+        delete.backgroundColor = .systemRed
+        
+        return UISwipeActionsConfiguration(actions: [delete])
     }
 }
